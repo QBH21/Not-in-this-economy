@@ -16,6 +16,10 @@ export async function GET() {
     timestamp: new Date().toISOString(),
     db,
     hasDbUrl: !!process.env.MYSQL_PUBLIC_URL,
+    dbHost: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).hostname : "n/a",
+    dbPort: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).port : "n/a",
+    dbUser: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).username : "n/a",
+    dbName: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).pathname.replace("/","") : "n/a",
     hasJwt: !!process.env.JWT_SECRET,
     hasSerper: !!process.env.SERPER_API_KEY,
   });

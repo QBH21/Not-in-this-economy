@@ -23,7 +23,7 @@ export function getPool(): mysql.Pool {
         waitForConnections: true,
         connectionLimit: 5,
         queueLimit: 0,
-        ssl: { rejectUnauthorized: false },
+        // SSL off — Railway public proxy handles encryption at proxy level
       });
     } else {
       pool = mysql.createPool({
