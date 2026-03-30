@@ -20,6 +20,7 @@ export async function GET() {
     dbPort: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).port : "n/a",
     dbUser: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).username : "n/a",
     dbName: process.env.MYSQL_PUBLIC_URL ? new URL(process.env.MYSQL_PUBLIC_URL).pathname.replace("/","") : "n/a",
+    dbPwdLen: process.env.MYSQL_PUBLIC_URL ? decodeURIComponent(new URL(process.env.MYSQL_PUBLIC_URL).password).length : 0,
     hasJwt: !!process.env.JWT_SECRET,
     hasSerper: !!process.env.SERPER_API_KEY,
   });
