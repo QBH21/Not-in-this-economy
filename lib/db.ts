@@ -11,6 +11,7 @@ export function getPool(): mysql.Pool {
         waitForConnections: true,
         connectionLimit: 5,
         queueLimit: 0,
+        ssl: { rejectUnauthorized: false },
       });
     } else {
       pool = mysql.createPool({
